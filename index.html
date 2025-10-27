@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Cloud Blog Feed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Google Cloud Blog Feed</h1>
+        <ul class="entry-list">
+            {% for entry in entries %}
+                <li><span class="date">{{ entry.published_datetime.strftime('%Y-%m-%d') }}</span> <a href="{{ url_for('entry', guid=entry.guid) }}">{{ entry.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
